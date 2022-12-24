@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>add image</title>
+    </head>
+    <style>
+        .container{
+            background: white;
+            color: black;
+            background-size: cover;
+            background-position: center;
+            max-width :450px; 
+            height: 100vh;
+            margin: auto;
+            position: relative;
+            border-style: solid;
+            border-radius: 25px;
+            /* display: flex; */
+        }
+        .labelbutton{
+            color: white;
+            padding: 8px;
+            background-color: #04AA6D;
+            margin-left: 160px;
+        }
+       
+    </style>
+    <body>
+        <div class="container" id="imgBox">
+            <p style="text-align: center;">Upload Image</p>
+            <input type="file" accept="image/*" name="image" id="file" style="display: none " onchange="loadFile(event)">
+            <label for="file" class="labelbutton">
+                Choose from Device
+            </label>
+
+        </div>
+        <script>
+            var imgBox= document.getElementById("imgBox");
+
+            var loadFile=function(event){
+                imgBox.style.backgroundImage = "url("+ URL.createObjectURL(event.target.files[0]) + ")";
+
+            }
+        </script>
+        <script src="./crop.js"></script>
+    </body>
+</html>
